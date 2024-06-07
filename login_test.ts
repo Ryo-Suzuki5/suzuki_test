@@ -1,40 +1,45 @@
-Feature('Login');
+Feature('タイピング自動化テスト');
 
 Before(({ login }) => {
-   login('user'); // login using user session
+    login('user'); // login using user session
 });
 
 // Alternatively log in for one scenario.
-Scenario('ログイン', async ({ I, login }) => {
-   login('suzuki');
-   I.wait(10);
-   I.click('ビジネス格言');
-   I.wait(5);
-   within({ frame: 'iframe#typing_content' }, () => {
-      I.click('#start_btn');
-   });
-   I.pressKey('Space');
-   I.wait(3);
+Scenario('タイピングを自動化するテスト', async ({ I, login }) => {
+    login('suzuki');
+    I.wait(3);
+    I.click('ビジネス格言');
+    I.wait(3);
+    within({ frame: 'iframe#typing_content' }, async () => {
+        I.click('#start_btn');
 
-   let isFound = false;
+        I.wait(3);
+        I.pressKey('Space');
+        I.wait(3);
 
-   while (!isFound) {
-      try {
-         // タイピングゲームの文字が表示される要素のセレクタを指定します。
-         const typingText = await I.grabTextFrom('iframe#sentenceText');
-         
-         // 取得した文字を一文字ずつ入力します。
-         for (let i = 0; i < typingText.length; i++) {
-            I.pressKey(typingText[i]);
-         }
+        let 今回のタイピング結果 = false;
+        while (!今回のタイピング結果) {
+            try {
+                const sentenceText = await I.grabHTMLFrom('#sentenceText');
 
-         // 特定の文字が表示されたか確認します。
-         I.see('「今回のタイピング結果」');
-         isFound = true;
-      } catch (error) {
-         // 特定の文字が見つからない場合、エラーがスローされます。
-         // その場合は、少し待ってから再度確認します。
-         I.wait(3); // 3秒待つ
-      }
-   }
+                // 取得した文字を一文字づつの配列に変換
+                let typingArray = sentenceText.split('');
+
+                // 取得した文字を一文字づつループさせる
+                for (let i = 0; i < typingArray.length; i++) {
+                    let typing = typingArray[i];
+                    
+                    // 取得した文字のキーを押す
+                    I.pressKey(typing);
+                }
+                // 「今回のタイピング結果」が表示されたかどうかをチェック
+                let resultText = await I.grabTextFrom('#result');
+                今回のタイピング結果 = resultText.includes('今回のタイピング結果');
+            } catch (error) {
+                // 「sentenceText」というidを持った要素が取得できない場合エラーが発生して、処理終了
+                console.log(error);
+                return;
+            }
+        }
+    });
 });
