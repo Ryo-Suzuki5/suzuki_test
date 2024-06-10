@@ -36,11 +36,11 @@ export const config: CodeceptJS.MainConfig = {
           check: (I) => {
             I.amOnPage('https://www.e-typing.ne.jp/roma/variety/business.asp');
             I.see('ビジネス格言');
-          }
-        }
+          },
+        },
       }
-    },
-    name: 'typing_test',
-    translation: 'ja-JP'
-  }
+    }
+  },
+  name: 'typing_test',
+  translation: 'ja-JP'
 }
