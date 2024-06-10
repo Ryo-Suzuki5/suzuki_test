@@ -19,9 +19,11 @@ Scenario('タイピングを自動化するテスト', async ({ I, login }) => {
             let resulttext = await I.grabNumberOfVisibleElements('#result');
             if (resulttext > 0) {
                 result = true; // '今回のタイピング結果'が見つかった場合、ループを終了
-                I.wait(1);
-                I.saveScreenshot('screenshot.png'); // スクリーンショットを保存
-                I.wait(5);
+                const date = new Date();
+                const timestamp = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "_" + date.getHours() + "_" + date.getMinutes() + "_" + date.getSeconds();
+                const screenshotName = 'screenshot_' + timestamp + '.png';
+                I.saveScreenshot(screenshotName);
+                I.wait(6);
             } else {
                 let typingdata = await I.grabHTMLFrom('#sentenceText span:nth-child(2)');
                 //console.log(typingdata);
@@ -29,9 +31,17 @@ Scenario('タイピングを自動化するテスト', async ({ I, login }) => {
 
                 // 取得した文字を一文字づつ入力させる
                 for (let typing of typingArray) {
-                    I.pressKey(typing)
+                    // 10%の確率でランダムなキーを押す
+                    if (Math.random() < 0.003) {
+                        const randomKey = String.fromCharCode(Math.floor(Math.random() * 26) + 97); // a-zのランダムなキー
+                        I.pressKey(randomKey);
+                    } else {
+                        I.pressKey(typing);
+                    }
+                    I.wait(0.07);
                 }
             }
         }
     })
+
 });

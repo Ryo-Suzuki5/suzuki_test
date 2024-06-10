@@ -32,6 +32,10 @@ export const config: CodeceptJS.MainConfig = {
           // loginAdmin function is defined in `steps_file.js`
           login: (I) => {
             I.amOnPage("https://www.e-typing.ne.jp/roma/variety/business.asp");
+            I.fillField('f_em', 'r.suzuki@micoworks.jp');
+            I.fillField('f_pw', 'qYNGKdNdMW26D');
+            I.click('ログイン');
+            I.wait(3);
           },
           check: (I) => {
             I.amOnPage('https://www.e-typing.ne.jp/roma/variety/business.asp');
