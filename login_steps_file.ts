@@ -1,11 +1,12 @@
 
-const { actor } = require('codeceptjs');
-
 export = function () {
-  return actor({
+    return actor({
+        business: function () {
+            this.wait(3);
+            this.click('ビジネス格言');
+            this.wait(3);
 
-    // Define custom steps here, use 'this' to access default methods of I.
-    // It is recommended to place a general 'login' function here.
-
-  });
-}
+         
+        },
+    });
+};
