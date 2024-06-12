@@ -1,8 +1,8 @@
 import { setHeadlessWhen, setCommonPlugins } from '@codeceptjs/configure';
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
-
+require('dotenv').config();
+//setHeadlessWhen(process.env.HEADLESS);
 // enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
 setCommonPlugins();
 
@@ -20,7 +20,8 @@ export const config: CodeceptJS.MainConfig = {
   },
   include: {
     I: './steps_file',
-    login: './login_steps_file'
+    login: './login_steps_file',
+    typ: './typing_steps_file'
   },
   plugins: {
     autoLogin: {

@@ -1,47 +1,49 @@
 
-module.exports = function () {
+
+exports = function () {
     return actor({
 
-        async performLoginTest(I) {
-           
-            within({ frame: 'iframe#typing_content' }, async () => {
-                I.click('#start_btn');
-        
-                I.wait(3);
-                I.pressKey('Space');
-                I.wait(3);
-        
-                let result = false;
-                while (!result) {
-                    let resulttext = await I.grabNumberOfVisibleElements('#result');
-                    if (resulttext > 0) {
-                        result = true; // '今回のタイピング結果'が見つかった場合、ループを終了
-                        const date = new Date();
-                        const timestamp = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "_" + date.getHours() + "_" + date.getMinutes() + "_" + date.getSeconds();
-                        const screenshotName = 'screenshot_' + timestamp + '.png';
-                        I.saveScreenshot(screenshotName);
-                        I.wait(6);
-                    } else {
-                        let typingdata = await I.grabHTMLFrom('#sentenceText span:nth-child(2)');
-                        //console.log(typingdata);
-                        let typingArray = typingdata.split('');// 取得した文字を一文字づつの配列に変換
-        
-                        // 取得した文字を一文字づつ入力させる
-                        for (let i = 0; i < typingArray.length; i++) {
-                            let typing = typingArray[i];
-                            // 最後の文字で、かつ5%の確率でランダムなキーを押す
-                            if ((Math.random() < 0.05)) {
-                                const randomKey = String.fromCharCode(Math.floor(Math.random() * 26) + 97); // a-zのランダムなキー
-                                I.pressKey(randomKey);
-                                I.pressKey(typing);
-                            } else {
-                                I.pressKey(typing);
-                            }
-                            I.wait(0.09);
-                        };
-                    } 
-                    }
-            })}
+        async checkResult() {
+            let result = false;
+            let resulttext = await this.grabNumberOfVisibleElements('#result');
+            if (resulttext > 0) {
+                result = true;
+                const date = new Date();
+                const timestamp = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "_" + date.getHours() + "_" + date.getMinutes() + "_" + date.getSeconds();
+                const screenshotName = 'screenshot_' + timestamp + '.png';
+                this.saveScreenshot(screenshotName);
+                this.wait(6);
             }
-            )
-    }
+            return result;
+        },
+
+        async typeText() {
+            let typingdata = await this.grabHTMLFrom('#sentenceText span:nth-child(2)');
+            let typingArray = typingdata.split('');
+
+            for (let i = 0; i < typingArray.length; i++) {
+                let typing = typingArray[i];
+
+                if ((Math.random() < 0.05)) {
+                    const randomKey = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+                    this.pressKey(randomKey);
+                    break;
+                } else {
+                    this.pressKey(typing);
+                }
+                this.wait(0.06);
+            };
+        },
+
+        async performTypingTest() {
+            let result = false;
+            while (!result) {
+                result = await this.checkResult();
+                if (!result) {
+                    await this.typeText();
+                }
+            }
+        }
+
+    });
+}
