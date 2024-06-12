@@ -1,6 +1,6 @@
 
 
-exports = function () {
+module.exports = function () {
     return actor({
 
         async checkResult() {
@@ -35,7 +35,7 @@ exports = function () {
             };
         },
 
-        async performTypingTest() {
+        async typingTest() {
             let result = false;
             while (!result) {
                 result = await this.checkResult();

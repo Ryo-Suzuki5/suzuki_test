@@ -3,7 +3,7 @@ type steps_file = typeof import('./steps_file');
 type typing = typeof import('./typing_steps_file');
 
 declare namespace CodeceptJS {
-  interface SupportObject { I: I, current: any, 私は: 私は, login: any, typ: typ }
+  interface SupportObject { I: I, current: any, 私は: 私は, login: any, typ: any }
   interface Methods extends Playwright { }
   interface I extends ReturnType<steps_file> { }
   interface 私は extends WithTranslation<Methods> { }

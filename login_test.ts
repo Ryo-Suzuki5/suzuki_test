@@ -12,7 +12,7 @@ Scenario('タイピングを自動化するテスト', async ({ I, login, typ })
         I.pressKey('Space');
         I.wait(3);
 
-        await typ.performTypingTest();
+        await typ.typingTest();
     }
     )}
     );
