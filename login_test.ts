@@ -4,7 +4,7 @@ Feature('タイピング自動化テスト');
 Scenario('タイピングを自動化するテスト', async ({ I, login }) => {
     login('suzuki');
     I.business() //ビジネス格言のタイピングをしたい場合
-    
+
     within({ frame: 'iframe#typing_content' }, async () => {
         I.click('#start_btn');
 
@@ -31,14 +31,16 @@ Scenario('タイピングを自動化するテスト', async ({ I, login }) => {
                 for (let i = 0; i < typingArray.length; i++) {
                     let typing = typingArray[i];
                     // 最後の文字で、かつ5%の確率でランダムなキーを押す
+
                     if ((Math.random() < 0.05)) {
                         const randomKey = String.fromCharCode(Math.floor(Math.random() * 26) + 97); // a-zのランダムなキー
                         I.pressKey(randomKey);
-                        I.pressKey(typing);
+                        break;
+
                     } else {
                         I.pressKey(typing);
                     }
-                    I.wait(0.09);
+                    I.wait(0.06);
                 };
 
             }
