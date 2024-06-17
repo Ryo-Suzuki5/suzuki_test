@@ -21,7 +21,8 @@ export const config: CodeceptJS.MainConfig = {
   include: {
     I: './steps_file',
     login: './login_steps_file',
-    typ: './typing_steps_file'
+    typ: './typing_steps_file',
+    random: './random_steps_file'
   },
   plugins: {
     autoLogin: {

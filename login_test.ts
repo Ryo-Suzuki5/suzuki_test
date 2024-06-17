@@ -1,7 +1,7 @@
 Feature('タイピング自動化テスト');
 
 // Alternatively log in for one scenario.
-Scenario('タイピングを自動化するテスト', async ({ I, login, typ }) => {
+Scenario('タイピングを自動化するテスト', async ({ I, login, typ, random}) => {
     login('suzuki');
     I.business() //ビジネス格言のタイピングをしたい場合
 
@@ -12,7 +12,11 @@ Scenario('タイピングを自動化するテスト', async ({ I, login, typ })
         I.pressKey('Space');
         I.wait(3);
 
+        await typ.checkResult();
+        await typ.typeText();
+        await random.randomText();
         await typ.typingTest();
+
     }
     )}
     );

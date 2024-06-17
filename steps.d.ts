@@ -1,9 +1,10 @@
 /// <reference types='codeceptjs' />
 type steps_file = typeof import('./steps_file');
 type typing = typeof import('./typing_steps_file');
+type random = typeof import('./random_steps_file');
 
 declare namespace CodeceptJS {
-  interface SupportObject { I: I, current: any, 私は: 私は, login: any, typ: any }
+  interface SupportObject { I: I, current: any, 私は: 私は, login: any, typ: any, random: any }
   interface Methods extends Playwright { }
   interface I extends ReturnType<steps_file> { }
   interface 私は extends WithTranslation<Methods> { }
