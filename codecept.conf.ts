@@ -2,7 +2,7 @@ import { setHeadlessWhen, setCommonPlugins } from '@codeceptjs/configure';
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 require('dotenv').config();
-//setHeadlessWhen(process.env.HEADLESS);
+setHeadlessWhen(process.env.HEADLESS);
 // enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
 setCommonPlugins();
 
