@@ -23,11 +23,11 @@ https://www.e-typing.ne.jp/
           },
 ```
 2. `npm install`を実行する
-   - `$ npm install`
+   - ` npm install`
 3. `playwright`をインストール
-   - `$ npx playwright install`
+   - ` npx playwright install`
 4. `dotenv`をインストール
-   - `$npm i dotenv`
+   - `npm i dotenv`
 
 
 ## テストする際のコマンド
