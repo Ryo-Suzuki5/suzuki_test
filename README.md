@@ -39,7 +39,7 @@ https://www.e-typing.ne.jp/
 
 ## 実行時の動画と実行後の結果画面でのスクショについて
 
-- 動画
+- 動画  
 https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/0827be65-ec22-4110-880f-5c915274e116
 
 
