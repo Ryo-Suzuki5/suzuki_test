@@ -30,6 +30,15 @@ https://www.e-typing.ne.jp/
    - `npm i dotenv`
 
 
+## ヘッドレスモードの設定について  
+
+ヘッドレスモードはデフォルトでは有効になっています。  
+もし、無効にしたい場合は`.env.exampie`の`HEADLESS='true'`の`true`を`false`に変更してください。
+```
+HEADLESS=true
+```
+
+
 ## テストする際のコマンド
 
 - ローカルでのcodeseptjsを実行
