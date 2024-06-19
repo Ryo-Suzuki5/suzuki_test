@@ -22,12 +22,12 @@ https://www.e-typing.ne.jp/
             I.wait(3);
           },
 ```
-2.`npm install`を実行する  
-- `npm install`  
-3.`playwright`をインストール  
-- `$ npx playwright install`  
-4.`dotenv`をインストール  
-- `$npm i dotenv`  
+2. `npm install`を実行する
+   - `$ npm install`
+3. `playwright`をインストール
+   - `$ npx playwright install`
+4. `dotenv`をインストール
+   - `$npm i dotenv`
 
 
 ## テストする際のコマンド
