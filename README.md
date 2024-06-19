@@ -42,13 +42,13 @@ https://www.e-typing.ne.jp/
 実行後の流れは`タイピングサイトへ遷移`➡`会員としてログイン`➡`タイピング開始`➡`タイピング終了と同時にスクショ`➡`実行完了`になります。
 
 
-- 動画  
+- 実行時の動画  
 https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/0827be65-ec22-4110-880f-5c915274e116
 
 
 
 
-- 画像
+- 実行後のスクショ
 ![screenshot_2024-6-18_15_26_3](https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/2ffd25fc-b01e-4cd2-9de1-01696779a838)
 
 
