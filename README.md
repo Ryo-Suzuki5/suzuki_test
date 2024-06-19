@@ -33,7 +33,7 @@ https://www.e-typing.ne.jp/
 ## テストする際のコマンド
 
 - ローカルでのcodeseptjsを実行
-  - `npx codeceptjs run
+  - `npx codeceptjs run`
  
 
 
@@ -41,6 +41,7 @@ https://www.e-typing.ne.jp/
 
 - 動画
 https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/0827be65-ec22-4110-880f-5c915274e116
+
 
 
 
