@@ -12,7 +12,7 @@ https://www.e-typing.ne.jp/
 ## 初期準備
 
 1.タイピングサイトにて会員登録する必要があります。
-   - 会員登録した情報を`codecept.conf.ts`の`登録したメールアドレス`と`登録したパスワード`の箇所を書き換える。
+ - 会員登録した情報を`codecept.conf.ts`の`登録したメールアドレス`と`登録したパスワード`の箇所を書き換える。
 ```
      login: (I) => {
             I.amOnPage("https://www.e-typing.ne.jp/roma/variety/business.asp");
