@@ -24,3 +24,27 @@ https://www.e-typing.ne.jp/
 ```
 2.`npm install`を実行する  
 - `npm install`
+3. `playwright`をインストール
+   - `$ npx playwright install`
+4. `dotenv`をインストール
+   - `$npm i dotenv`
+
+
+## テストする際のコマンド
+
+- ローカルでのcodeseptjsを実行
+  - `npx codeceptjs run
+ 
+
+
+## 実行時の動画と実行後の結果画面でのスクショについて
+
+- 動画
+[6a819dfe-7ad9-4694-88cb-347c137e395b_タイピングを自動化するテスト.passed.webm](https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/df375f0d-c53d-4383-9e48-c30f65a1eb3d)
+
+- 画像
+![screenshot_2024-6-18_15_26_3](https://github.com/Ryo-Suzuki5/suzuki_test/assets/146925012/2ffd25fc-b01e-4cd2-9de1-01696779a838)
+
+
+
+
