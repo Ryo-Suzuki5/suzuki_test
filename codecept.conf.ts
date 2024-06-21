@@ -2,9 +2,7 @@ import { setHeadlessWhen, setCommonPlugins } from '@codeceptjs/configure';
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 require('dotenv').config();
-setHeadlessWhen(process.env.HEADLESS);
-//setHeadlessWhen(process.env.mail);
-//setHeadlessWhen(process.env.pass);
+//setHeadlessWhen(process.env.HEADLESS);
 // enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
 setCommonPlugins();
 
@@ -36,8 +34,8 @@ export const config: CodeceptJS.MainConfig = {
           // loginAdmin function is defined in `steps_file.js`
           login: (I) => {
             I.amOnPage("https://www.e-typing.ne.jp/roma/variety/business.asp");
-            I.fillField('f_em', 'process.env.mail');
-            I.fillField('f_pw', 'process.env.pass');
+            I.fillField('f_em', process.env.MAIL);
+            I.fillField('f_pw', process.env.PASS);
             I.click('ログイン');
             I.wait(3);
           },
