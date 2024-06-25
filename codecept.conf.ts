@@ -38,10 +38,9 @@ export const config: CodeceptJS.MainConfig = {
             I.fillField('f_pw', process.env.PASS);
             I.click('ログイン');
             I.wait(3);
-          },
-          check: (I) => {
-            I.amOnPage('https://www.e-typing.ne.jp/roma/variety/business.asp');
-            I.see('ビジネス格言');
+            I.click('ビジネス');
+            I.click(process.env.BUZINESS);//BUZINESSの部分を変えることで、他のカテゴリも選択可能
+            I.wait(3);
           },
         },
       }

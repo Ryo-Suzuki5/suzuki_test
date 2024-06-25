@@ -2,7 +2,6 @@ Feature('タイピング自動化テスト');
 
 Scenario('タイピングを自動化するテスト', async ({ I, login, typ }) => {
     login('suzuki');
-    I.business(); //ビジネス格言のタイピングをしたい場合
 
     within({ frame: 'iframe#typing_content' }, async () => {
         I.click('#start_btn');
