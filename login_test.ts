@@ -2,10 +2,9 @@ Feature('タイピング自動化テスト');
 
 Scenario('タイピングを自動化するテスト', async ({ I, login, typ }) => {
     login('suzuki');
-
+    I.category();
     within({ frame: 'iframe#typing_content' }, async () => {
         I.click('#start_btn');
-
         I.wait(3);
         I.pressKey('Space');
         I.wait(3);
